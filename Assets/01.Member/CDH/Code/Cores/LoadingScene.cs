@@ -6,6 +6,7 @@ namespace Assets._01.Member.CDH.Code.Cores
 {
     public class LoadingScene : MonoBehaviour
     {
+        [SerializeField] private string gameSceneName;
         [SerializeField] private RectTransform loadingBar;
         [SerializeField] private TextMeshProUGUI loadingText;
         [SerializeField] private int frameDuration = 10;
@@ -20,7 +21,7 @@ namespace Assets._01.Member.CDH.Code.Cores
             float minLoadingTime = 0.5f;
             float startTime = Time.time;
 
-            AsyncOperation op = SceneManager.LoadSceneAsync("GameScene");
+            AsyncOperation op = SceneManager.LoadSceneAsync(gameSceneName);
             op.allowSceneActivation = false;
 
             string[] dp = { "", ".", "..", "..." };
