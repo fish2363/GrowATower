@@ -23,6 +23,10 @@ namespace Assets._01.Member.CDH.Code.Turns
             turnManagerEventChannel.AddListener<BreakTimeSkipEvent>(HandleBreakTimeSkip);
 
             StartWave();
+            // Test
+            print("TestDrawCards");
+            DrawCards();
+            // Test
         }
 
         private void OnDestroy()

@@ -9,6 +9,7 @@ namespace Assets._04.Core
     {
         [SerializeField] private EventChannelSO uiEventChannel;
         [SerializeField] private EventChannelSO turnManagerChannel;
+        [SerializeField] private TESTSOList testList;
 
         private void Awake()
         {
@@ -22,7 +23,10 @@ namespace Assets._04.Core
 
         private void HandleDrawCardStart(DrawCardsStartEvent evt)
         {
-            
+            var drawCardsEvt = UIEvents.randomShuffle;
+            drawCardsEvt.chooseTimer = 10f;
+            drawCardsEvt.resultList = RandomShuffle.ShuffleRandomCards(testList.tests, 6);
+            uiEventChannel.Invoke(drawCardsEvt);
         }
     }
 }
