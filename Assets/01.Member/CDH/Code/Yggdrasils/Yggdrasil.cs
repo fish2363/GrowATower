@@ -1,5 +1,4 @@
 ﻿using Assets._04.Core;
-using UnityEngine;
 
 namespace Assets._01.Member.CDH.Code.Yggdrasils
 {
@@ -14,7 +13,7 @@ namespace Assets._01.Member.CDH.Code.Yggdrasils
 
         public void Initialize(int maxHealth)
         {
-            health = maxHealth;
+            health = this.maxHealth = maxHealth;
         }
 
         public void Hit(int damage)
