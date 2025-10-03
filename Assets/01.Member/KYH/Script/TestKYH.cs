@@ -11,7 +11,7 @@ public class TestKYH : MonoBehaviour
         RandomShuffle randomShuffle = UIEvents.randomShuffle;
         randomShuffle.chooseTimer = 10f;
         randomShuffle.resultList = RandomShuffle.ShuffleRandomCards(list.tests,6);
-        uiChannel.Invok(randomShuffle);
+        uiChannel.Invoke(randomShuffle);
     }
 
     // Update is called once per frame
