@@ -12,12 +12,12 @@ public class RandomShuffle : GameEvent
     public List<Test> resultList;
     public float chooseTimer;
 
-    private Random _random = new();
+    private static Random _random = new();
 
     /// <summary>
     /// 리스트에서 랜덤하게 shuffleCnt 개수를 뽑아 반환합니다.
     /// </summary>
-    public List<Test> ShuffleRandomCards(List<Test> source, int shuffleCnt)
+    public static List<Test> ShuffleRandomCards(List<Test> source, int shuffleCnt)
     {
         if (source == null || source.Count == 0)
             throw new ArgumentException("Source 리스트가 비어 있습니다.");
