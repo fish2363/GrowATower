@@ -4,9 +4,9 @@ namespace Assets._04.Core
 {
     public class Singleton<T> where T : new()
     {
-        private T instance;
+        private static T instance;
 
-        public T Instance
+        public static T Instance
         {
             get
             {
@@ -19,9 +19,9 @@ namespace Assets._04.Core
 
     public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
-        private T instance;
+        private static T instance;
 
-        public T Instance
+        public static T Instance
         {
             get
             {

@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 615746a4d1f84374d89b90e6813cfa75, type: 3}
-  m_Name: TurnEventChannel
+  m_Name: TurnManagerEventChannel
   m_EditorClassIdentifier: 
