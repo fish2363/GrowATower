@@ -8,9 +8,8 @@ namespace _01.Member.SD._01.Code.Unit.Interface
 {
     public class BaseUnit:MonoBehaviour, IUnit
     {
-        public BaseAttack baseAttck;
-        public EnemyPriority[] EnemyPriorities;
-    
+        public UnitStatSO UnitStatSO;
+     
         private void OnEnable()
         {
             

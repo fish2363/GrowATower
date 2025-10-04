@@ -10,7 +10,7 @@ using Unity.VisualScripting;
 [NodeDescription(name: "SearchEnemyAction", story: "[Unit] Find [Enemy] In Can Delect [Range]", category: "Action", id: "c941ceea90ece94c7ffe6ccd0cc172f8")]
 public partial class SearchEnemyAction : Action
 {
-    [SerializeReference] public BlackboardVariable<BaseUnit> Unit;
+    [SerializeReference] public BlackboardVariable<CanAttackUnit> Unit;
     [SerializeReference] public BlackboardVariable<float> Range;
     [SerializeReference] public BlackboardVariable<Target> Enemy;
     private LayerMask targetLayer;
@@ -63,9 +63,12 @@ public partial class SearchEnemyAction : Action
 
         Enemy.Value = selectedEnemy;
 
-        return Status.Running;
+        return Status.Success;
     }
-
-
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(Unit.Value.transform.position, Range.Value);
+    }
 }
 

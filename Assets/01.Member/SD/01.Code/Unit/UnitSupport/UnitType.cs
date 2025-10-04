@@ -3,11 +3,10 @@ using Unity.Behavior;
 namespace _01.Member.SD._01.Code.Unit.Interface.UnitSupport
 {
     [BlackboardEnum]
-    public enum EnemyType
+    public enum UnitType
     {
-        FLYENEMY=1,
-        NORMALENEMY,
-        BOS
-        
+        GROWUNIT,
+        QUICKGROWUNIT,
+        SUPPORTUNIT
     }
 }
