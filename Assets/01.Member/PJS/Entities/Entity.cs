@@ -6,9 +6,6 @@ namespace Entities
 {
     public class Entity : MonoBehaviour
     {
-        [SerializeField] private EnemyStatSO statSO;
-
-        public EnemyStatSO StatSO { get { return statSO; } }
         public bool IsDead { get; set; }
 
         Dictionary<Type, IEntityComponent> _components;
