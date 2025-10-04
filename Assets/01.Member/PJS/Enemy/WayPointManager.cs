@@ -1,16 +1,21 @@
+using Assets._04.Core;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class WayPointManager
+public class WayPointManager : MonoSingleton<WayPointManager>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [HideInInspector] public List<Transform> waypoints = new List<Transform>();
+    void Awake()
     {
-        
+        CollectWaypoints();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void CollectWaypoints()
     {
-        
+        waypoints.Clear(); 
+
+        foreach (Transform child in transform)
+        {
+            waypoints.Add(child);
+        }
     }
 }
