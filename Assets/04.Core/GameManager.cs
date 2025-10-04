@@ -1,6 +1,4 @@
 ﻿using Assets._01.Member.CDH.Code.Events;
-using NUnit.Framework;
-using System;
 using UnityEngine;
 
 namespace Assets._04.Core
