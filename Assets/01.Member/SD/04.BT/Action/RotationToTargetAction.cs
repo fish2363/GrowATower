@@ -16,7 +16,7 @@ public partial class RotationToTargetAction : Action
 
     protected override Status OnStart()
     {
-        rotationSpeed = Unit.Value.UnitStatSO.rotationSpeed;
+        rotationSpeed = Unit.Value.unitStat.rotationSpeed;
         return Status.Running;
     }
 

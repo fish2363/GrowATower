@@ -22,7 +22,7 @@ public partial class CheckUnitTypeMatchCondition : Condition
         if (Unit?.Value == null || TargetType?.Value == null)
             return false;
 
-        bool isSame = Unit.Value.UnitStatSO.type == TargetType.Value;
+        bool isSame = Unit.Value.unitStat.type == TargetType.Value;
         return InvertResult.Value ? isSame : !isSame;
     }
 

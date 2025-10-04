@@ -11,12 +11,13 @@ using Unity.VisualScripting;
 public partial class SearchEnemyAction : Action
 {
     [SerializeReference] public BlackboardVariable<CanAttackUnit> Unit;
-    [SerializeReference] public BlackboardVariable<float> Range;
+     private float _range;
     [SerializeReference] public BlackboardVariable<Target> Enemy;
     private LayerMask targetLayer;
     
     protected override Status OnStart()
     {
+        _range = Unit.Value.attackRange; 
         targetLayer = LayerMask.GetMask("Enemy");
         return base.OnStart();
     }
@@ -27,7 +28,7 @@ public partial class SearchEnemyAction : Action
             return Status.Failure;
 
         Vector3 unitPos = Unit.Value.transform.position;
-        Collider[] enemies = Physics.OverlapSphere(unitPos, Range.Value, targetLayer);
+        Collider[] enemies = Physics.OverlapSphere(unitPos, _range, targetLayer);
 
         if (enemies.Length == 0)
             return Status.Failure;
@@ -65,10 +66,6 @@ public partial class SearchEnemyAction : Action
 
         return Status.Success;
     }
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(Unit.Value.transform.position, Range.Value);
-    }
+  
 }
 

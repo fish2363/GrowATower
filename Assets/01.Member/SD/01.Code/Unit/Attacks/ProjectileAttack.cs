@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ProjectileAttack : BaseAttack
 {
+    public GameObject projectileObj;
     public override void Attack(BaseUnit unit, Target target)
     {
         base.Attack(unit, target);
