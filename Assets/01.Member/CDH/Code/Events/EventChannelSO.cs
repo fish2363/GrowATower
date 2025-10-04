@@ -51,10 +51,16 @@ namespace Assets._01.Member.CDH.Code.Events
             }
         }
 
-        public void Invok(GameEvent evt)
+        public void Invoke(GameEvent evt)
         {
             if(events.TryGetValue(evt.GetType(), out Action<GameEvent> handler))
                 handler?.Invoke(evt);
+        }
+
+        public void Clear()
+        {
+            events.Clear();
+            lookups.Clear();
         }
     }
 }
