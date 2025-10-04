@@ -11,9 +11,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private EventChannelSO _uiChannel;
     [SerializeField] private RectTransform _parent;  // 카드들이 들어갈 부모 (예: Panel)
     [SerializeField] private Card _cardPrefab; // 카드 프리팹
+    [SerializeField] private DragCard _dragCardPrefab; // 카드 프리팹
     [SerializeField] private float _spacing = 120f;  // 카드 간격
     [SerializeField] private float _animDuration = 0.4f; // 들어오는 시간
     [SerializeField] private RectTransform _inventory;
+    [SerializeField] private GridSystem gridSystem;
 
     private int _currentSelectCnt;
     private List<Test> _resultList;
@@ -56,14 +58,9 @@ public class UIManager : MonoBehaviour
     }
     public void SelectButton(Card test)
     {
-        Card obj = Instantiate(_cardPrefab, _inventory);
-        obj.Initialze(ClickButton, test.myInfo);
+        DragCard obj = Instantiate(_dragCardPrefab, _inventory);
+        obj.Initialze(test.myInfo,gridSystem);
         ChooseHandler(test);
-    }
-
-    public void ClickButton(Card test)
-    {
-
     }
 
     public void ChooseHandler(Card card)

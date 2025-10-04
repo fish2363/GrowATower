@@ -34,6 +34,7 @@ public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void OnButtonClicked()
     {
+        _button.onClick.RemoveListener(OnButtonClicked);
         _onClickAction?.Invoke(this);
     }
 
