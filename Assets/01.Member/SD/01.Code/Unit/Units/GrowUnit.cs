@@ -2,8 +2,9 @@ using UnityEngine;
 
 namespace _01.Member.SD._01.Code.Unit.Interface
 {
-    public class GrowUnit:BaseUnit
+    public class GrowUnit:CanAttackUnit
     {
+        
         public override void OnPlace()
         {
             base.OnPlace();

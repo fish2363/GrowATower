@@ -1,6 +1,6 @@
 namespace _01.Member.SD._01.Code.Unit.Interface
 {
-    public class QuickGrowUnit:BaseUnit
+    public class QuickGrowUnit:CanAttackUnit
     {
         public override void OnPlace()
         {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _01.Member.SD._01.Code.Unit.Interface
 {
-    public class StageUnit : BaseUnit
+    public class StageUnit : CanAttackUnit
     {
         public override void OnPlace()
         {

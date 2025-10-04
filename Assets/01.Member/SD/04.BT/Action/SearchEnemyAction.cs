@@ -10,13 +10,14 @@ using Unity.VisualScripting;
 [NodeDescription(name: "SearchEnemyAction", story: "[Unit] Find [Enemy] In Can Delect [Range]", category: "Action", id: "c941ceea90ece94c7ffe6ccd0cc172f8")]
 public partial class SearchEnemyAction : Action
 {
-    [SerializeReference] public BlackboardVariable<BaseUnit> Unit;
-    [SerializeReference] public BlackboardVariable<float> Range;
+    [SerializeReference] public BlackboardVariable<CanAttackUnit> Unit;
+     private float _range;
     [SerializeReference] public BlackboardVariable<Target> Enemy;
     private LayerMask targetLayer;
     
     protected override Status OnStart()
     {
+        _range = Unit.Value.attackRange; 
         targetLayer = LayerMask.GetMask("Enemy");
         return base.OnStart();
     }
@@ -27,7 +28,7 @@ public partial class SearchEnemyAction : Action
             return Status.Failure;
 
         Vector3 unitPos = Unit.Value.transform.position;
-        Collider[] enemies = Physics.OverlapSphere(unitPos, Range.Value, targetLayer);
+        Collider[] enemies = Physics.OverlapSphere(unitPos, _range, targetLayer);
 
         if (enemies.Length == 0)
             return Status.Failure;
@@ -63,9 +64,8 @@ public partial class SearchEnemyAction : Action
 
         Enemy.Value = selectedEnemy;
 
-        return Status.Running;
+        return Status.Success;
     }
-
-
+  
 }
 
